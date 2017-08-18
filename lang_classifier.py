@@ -11,7 +11,7 @@ class LanguageClassifier:
         self.vectorizer = CountVectorizer(analyzer=feature_function)
         self.classifier = MultinomialNB()
 
-    def partial_train(samples, labels):
+    def partial_train(self, samples, labels):
         """Partially train the algorithm, using MultinomialNB's partial_fit 
         method. Use this when the size of the training sample set is too big 
         and training on multiple batches is required.
@@ -19,10 +19,10 @@ class LanguageClassifier:
         sample_vectors = self.vectorizer(samples)
         self.classifier.partial_fit(sample_vectors, labels)
 
-    def train(samples, labels):
+    def train(self, samples, labels):
         sample_vectors = self.vectorizer(samples)
         self.classifier.fit(sample_vectors, labels)
 
-    def predict(samples):
+    def predict(self, samples):
         sample_vectors = self.vectorizer(samples)
         return self.classifier.predict(sample_vectors)

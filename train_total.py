@@ -3,12 +3,10 @@
 import os, sys
 from lang_classifier import LanguageClassifier
 from analyzer import byte_1_4_gram_analyzer
-import random
 import pickle
 
 doc_directory = sys.argv[1]
 classifier_output = sys.argv[2]
-TRAIN_SIZE=int(sys.argv[3])
 
 classifier = LanguageClassifier(byte_1_4_gram_analyzer)
 
@@ -19,10 +17,9 @@ for l in lang_folders:
     print("Training with files in folder {}".format(l))
     folder_path = os.path.join(doc_directory, l)
     files = os.listdir(folder_path)
-    random.seed(1)
     samples = []
     labels = []
-    for f in random.sample(files, TRAIN_SIZE):
+    for f in files:
         file_path = os.path.join(folder_path, f)
         with open(file_path) as sample:
             samples.append(sample.read())

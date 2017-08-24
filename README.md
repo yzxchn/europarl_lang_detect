@@ -187,6 +187,7 @@ training set of sizes ranging from 50 documents per language to 800, with
 increments of 50. The following graph shows the growth of classifier accuracy
 as the size of the training data grows.
 ![accuracy grows with training data size](https://raw.githubusercontent.com/yzxchn/europarl_lang_detect/master/accuracy_growth.png)
+
 It shows that, the accuracy increases as the size of the training data gets
 bigger. However, there is not a significant gain after the training data size
 becomes several hundred documents per language.
